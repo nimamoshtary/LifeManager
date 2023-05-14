@@ -7,6 +7,9 @@ android {
     namespace 'ir.lifeplas.lifemanager'
     compileSdk 32
 
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "ir.lifeplas.lifemanager"
         minSdk 21

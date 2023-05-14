@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Actions"
+        android:id="@+id/nav_bottem_Actions"
+        android:icon="@drawable/ic_baseline_event"/>
+    <item
+        android:title="Goals"
+        android:id="@+id/nav_bottam_Goals"
+        android:icon="@drawable/ic_baseline_sports_score_24"/>
+    <item
+        android:title="Schedule"
+        android:id="@+id/nav_bottom_Schedule"
+        android:icon="@drawable/ic_baseline_schedule_24"/>
+    <item
+        android:title="Statistics"
+        android:id="@+id/nav_bottom_Statistics"
+        android:icon="@drawable/ic_baseline_equalizer_24"/>
+    <item
+        android:title="Setting"
+        android:id="@+id/nav_bottom_Setting"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+
+</menu>
