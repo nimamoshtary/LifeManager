@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.Adapters.AdapterActionsR
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentActionsDayBinding
-import ir.lifeplas.lifemanager.databinding.FragmentActionsMonthBinding
 import ir.lifeplas.lifemanager.dataclass.ActionsItem
+import java.util.Date as Date
 
 class ActionsDayFragment : Fragment() {
     lateinit var binding : FragmentActionsDayBinding
@@ -24,8 +24,9 @@ class ActionsDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val listactions = arrayListOf<ActionsItem>(
-            ActionsItem("فعالیت اول","توضیحات","@drawable/ic_more","@drawable/ic_complte")
+            ActionsItem("فعالیت اول","توضیحات","@drawable/ic_more","@drawable/ic_complte", 28)
         )
         val adap = AdapterActionsR(listactions)
         binding.RcycleDay.adapter = adap
@@ -42,8 +43,9 @@ class ActionsDayFragment : Fragment() {
                 val txtinfo = dialogs.infoofaction.text.toString()
                 val imgmore = listactions[0].imagemore
                 val imgcomplet = listactions[0].imagefil
+                val datebi = 28
 
-                val Action = ActionsItem(txtname, txtinfo, imgmore, imgcomplet)
+                val Action = ActionsItem(txtname, txtinfo, imgmore, imgcomplet, datebi)
                 adap.addAction(Action)
                 alert.dismiss()
                 binding.RcycleDay.smoothScrollToPosition(0)

@@ -24,30 +24,10 @@ class ActionsYearFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listactions = arrayListOf<ActionsItem>(
-            ActionsItem("فعالیت اول","توضیحات","@drawable/ic_more","@drawable/ic_complte")
+            ActionsItem("فعالیت اول","توضیحات","@drawable/ic_more","@drawable/ic_complte", 28)
         )
         val adap = AdapterActionsR(listactions)
         binding.RcycleYears.adapter = adap
         binding.RcycleYears.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
-
-        binding.floatingActionButton.setOnClickListener {
-            val alert = AlertDialog.Builder(context).create()
-            val dialogs = DialogActionsBinding.inflate(layoutInflater)
-            alert.setView(dialogs.root)
-            alert.setCancelable(true)
-            alert.show()
-            dialogs.btnok.setOnClickListener {
-                val txtname = dialogs.nameofaction.text.toString()
-                val txtinfo = dialogs.infoofaction.text.toString()
-                val imgmore = listactions[0].imagemore
-                val imgcomplet = listactions[0].imagefil
-
-                val Action = ActionsItem(txtname, txtinfo, imgmore, imgcomplet)
-                adap.addAction(Action)
-                alert.dismiss()
-                binding.RcycleYears.smoothScrollToPosition(0)
-            }
-
-        }
     }
 }

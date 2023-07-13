@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Life Manager</string>
     <string name="actions_fragment">Actions Fragment</string>
+    <string name="todo">TODO</string>
 </resources>

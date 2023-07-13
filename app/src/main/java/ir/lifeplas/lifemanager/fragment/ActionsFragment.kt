@@ -12,14 +12,14 @@ import ir.lifeplas.lifemanager.databinding.FragmentActionsBinding
 
 class ActionsFragment : Fragment(){
     lateinit var binding: FragmentActionsBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentActionsBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val adap = AdapterActionsV(this)
         binding.viewpager.adapter = adap
 

@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     android:background="#E0F2F1">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="6dp"
-        android:clickable="true"
-        android:contentDescription="TODO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="100dp"
-        app:srcCompat="@drawable/ic_add" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcycle_years"
         android:layout_width="match_parent"

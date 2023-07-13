@@ -15,9 +15,13 @@ class AdapterActionsR(private val data:ArrayList<ActionsItem>) : RecyclerView.Ad
         var txtsub = Item.findViewById<TextView>(R.id.txt_sub)
         var imgmore = Item.findViewById<ImageView>(R.id.img_more)
         var imgfil = Item.findViewById<ImageView>(R.id.img_complet)
+
         fun bindData(position:Int){
             txttitle.text = data[position].textTitle.toString()
             txtsub.text = data[position].textsub.toString()
+            imgmore.setOnClickListener{
+                //Toast.makeText(this@AdapterActionsR,"بزودی....",Toast.LENGTH_LONG).show()
+            }
         }
     }
 
