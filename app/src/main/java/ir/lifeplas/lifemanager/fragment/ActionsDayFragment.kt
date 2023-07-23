@@ -12,11 +12,10 @@ import ir.lifeplas.lifemanager.Adapters.AdapterActionsR
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentActionsDayBinding
 import ir.lifeplas.lifemanager.dataclass.ActionsItem
-import java.util.Date as Date
 
 class ActionsDayFragment : Fragment() {
     lateinit var binding : FragmentActionsDayBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentActionsDayBinding.inflate(layoutInflater, null, false)
         return binding.root
@@ -45,8 +44,8 @@ class ActionsDayFragment : Fragment() {
                 val imgcomplet = listactions[0].imagefil
                 val datebi = 28
 
-                val Action = ActionsItem(txtname, txtinfo, imgmore, imgcomplet, datebi)
-                adap.addAction(Action)
+                val Actionha= ActionsItem(txtname, txtinfo, imgmore, imgcomplet, datebi)
+                adap.addAction(Actionha)
                 alert.dismiss()
                 binding.RcycleDay.smoothScrollToPosition(0)
             }

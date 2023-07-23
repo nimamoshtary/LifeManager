@@ -27,9 +27,9 @@ class ActionsFragment : Fragment(){
             object : TabLayoutMediator.TabConfigurationStrategy {
                 override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
                     when(position){
-                        0 -> {tab.text = " year "}
-                        1 -> {tab.text = " month "}
-                        2 -> {tab.text = " day "}
+                        0 -> {tab.text = "year"}
+                        1 -> {tab.text = "month"}
+                        2 -> {tab.text = "day"}
                     }
                 }
             })
