@@ -11,13 +11,13 @@ class AdapterActionsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int) :Fragment {
         return when (position) {
             0 -> {
-                return ActionsYearFragment()
+                return ActionsDayFragment()
             }
             1 -> {
                 return ActionsMonthFragment()
             }
             2 -> {
-                return ActionsDayFragment()
+                return ActionsYearFragment()
             }
             else -> {
                 return Fragment()
