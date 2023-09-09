@@ -15,7 +15,7 @@ import ir.lifeplas.lifemanager.dataclass.ActionsItem
 
 class ActionsYearFragment : Fragment() {
     lateinit var binding : FragmentActionsYearBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentActionsYearBinding.inflate(layoutInflater, null, false)
         return binding.root

@@ -15,7 +15,7 @@ import ir.lifeplas.lifemanager.dataclass.ActionsItem
 
 class ActionsMonthFragment : Fragment() {
     lateinit var binding : FragmentActionsMonthBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentActionsMonthBinding.inflate(layoutInflater, null, false)
         return binding.root
