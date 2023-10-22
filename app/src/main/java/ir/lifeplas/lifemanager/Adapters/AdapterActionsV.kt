@@ -9,7 +9,7 @@ import ir.lifeplas.lifemanager.fragment.ActionsYearFragment
 class AdapterActionsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int) :Fragment {
-        return when (position) {
+        when (position) {
             0 -> {
                 return ActionsDayFragment()
             }

@@ -2,12 +2,15 @@ package ir.lifeplas.lifemanager.Adapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import ir.lifeplas.lifemanager.fragment.*
+import ir.lifeplas.lifemanager.fragment.GoalsLongtimeFragment
+import ir.lifeplas.lifemanager.fragment.GoalsMonthFragment
+import ir.lifeplas.lifemanager.fragment.GoalsWeekFragment
+import ir.lifeplas.lifemanager.fragment.GoalsYearFragment
 
 class AdapterGoalsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int) :Fragment {
-        return when (position) {
+        when (position) {
             0 -> {
                 return GoalsLongtimeFragment()
             }
