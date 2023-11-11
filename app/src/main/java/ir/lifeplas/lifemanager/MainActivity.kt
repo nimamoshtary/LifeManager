@@ -1,15 +1,20 @@
 package ir.lifeplas.lifemanager
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ir.lifeplas.lifemanager.databinding.ActivityMainBinding
-import ir.lifeplas.lifemanager.fragment.*
+import ir.lifeplas.lifemanager.fragment.ActionsFragment
+import ir.lifeplas.lifemanager.fragment.GoalsFragment
+import ir.lifeplas.lifemanager.fragment.ScheduleFragment
+import ir.lifeplas.lifemanager.fragment.SettingFragment
+import ir.lifeplas.lifemanager.fragment.StatisticsFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
