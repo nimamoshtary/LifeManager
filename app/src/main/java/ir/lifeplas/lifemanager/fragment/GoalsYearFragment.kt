@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.Actionsdao
-import ir.lifeplas.lifemanager.Adapters.AdapterActionsR
+import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentGoalsYearBinding
@@ -49,7 +49,7 @@ class GoalsYearFragment : Fragment() {
 
                 val Actionha= ActionsItem(textTitle = txtname, textsub = txtinfo, datebild = datebi)
                 val data = tableAct.getall()
-                val adap = AdapterActionsR(ArrayList(data))
+                val adap = AdapterGoalsR(ArrayList(data))
                 adap.addAction(Actionha)
                 tableAct.insert(Actionha)
                 alert.dismiss()
@@ -61,7 +61,7 @@ class GoalsYearFragment : Fragment() {
     }
     private fun showall(){
         val data = tableAct.getall()
-        val adap = AdapterActionsR(ArrayList(data))
+        val adap = AdapterGoalsR(ArrayList(data))
         binding.RcycleYear.adapter = adap
         binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
     }
