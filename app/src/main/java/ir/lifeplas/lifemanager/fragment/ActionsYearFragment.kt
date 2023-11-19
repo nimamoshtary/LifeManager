@@ -34,7 +34,7 @@ class ActionsYearFragment : Fragment() {
 //        binding.RcycleYears.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
     }
     private fun showall(){
-        val data = tableAct.getall()
+        val data = tableAct.getAllActions()
         val adap = AdapterActionsR(ArrayList(data))
         binding.RcycleYears.adapter = adap
         binding.RcycleYears.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ir.lifeplas.lifemanager.Actionsdao
 import ir.lifeplas.lifemanager.Adapters.AdapterActionsR
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
@@ -17,7 +16,6 @@ import ir.lifeplas.lifemanager.dataclass.ActionsItem
 
 class ActionsDayFragment : Fragment() {
     lateinit var binding : FragmentActionsDayBinding
-    lateinit var tableAct : Actionsdao
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentActionsDayBinding.inflate(layoutInflater, null, false)
         return binding.root
@@ -27,8 +25,8 @@ class ActionsDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        tableAct = database.getdb(view.context).actionsDao
-        val data = tableAct.getall()
+        val tableAct = database.getdb(view.context).actionsDao
+        val data = tableAct.getAllActions()
         val adap = AdapterActionsR(ArrayList(data))
         binding.RcycleDay.adapter = adap
         binding.RcycleDay.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL,false)

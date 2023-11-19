@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.R
-import ir.lifeplas.lifemanager.dataclass.ActionsItem
+import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
-class AdapterGoalsR(private val data:ArrayList<ActionsItem>) : RecyclerView.Adapter<AdapterGoalsR.Recycler>() {
+class AdapterGoalsR(private val data:ArrayList<GoalsItem>) : RecyclerView.Adapter<AdapterGoalsR.Recycler>() {
     inner class Recycler(Item :View) :RecyclerView.ViewHolder(Item){
         var txttitle = Item.findViewById<TextView>(R.id.txt_title)
         var txtsub = Item.findViewById<TextView>(R.id.txt_sub)
@@ -38,7 +38,7 @@ class AdapterGoalsR(private val data:ArrayList<ActionsItem>) : RecyclerView.Adap
         return data.size
     }
 
-    fun addAction(action:ActionsItem){
+    fun addAction(action:GoalsItem){
         data.add( 0 , action )
         notifyItemInserted(0)
     }

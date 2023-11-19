@@ -32,7 +32,7 @@ class ActionsMonthFragment : Fragment() {
 //        binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
     }
     private fun showall(){
-        val data = tableAct.getall()
+        val data = tableAct.getAllActions()
         val adap = AdapterActionsR(ArrayList(data))
         binding.RcycleMonth.adapter = adap
         binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)

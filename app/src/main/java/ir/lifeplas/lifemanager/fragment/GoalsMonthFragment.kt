@@ -13,11 +13,10 @@ import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentGoalsMonthBinding
-import ir.lifeplas.lifemanager.dataclass.ActionsItem
+import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
 class GoalsMonthFragment : Fragment() {
     lateinit var binding : FragmentGoalsMonthBinding
-    lateinit var tableAct : Actionsdao
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsMonthBinding.inflate(layoutInflater, null, false)
         return binding.root
@@ -26,14 +25,11 @@ class GoalsMonthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tableAct = database.getdb(view.context).actionsDao
-        showall()
-//        val listactions = arrayListOf<ActionsItem>(
-//            ActionsItem("هدف اول","توضیحات","@drawable/ic_more","@drawable/ic_complte", 28)
-//        )
-//        val adap = AdapterActionsR(listactions)
-//        binding.RcycleMonth.adapter = adap
-//        binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+        val tableGoals = database.getdb(view.context).goalsDao
+        val data = tableGoals.getAllGoals()
+        val adap = AdapterGoalsR(ArrayList(data))
+        binding.RcycleMonth.adapter = adap
+        binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
         binding.floatingActionButton.setOnClickListener {
             val alert = AlertDialog.Builder(context).create()
@@ -46,21 +42,13 @@ class GoalsMonthFragment : Fragment() {
                 val txtinfo = dialogs.infoofaction.text.toString()
                 val datebi = 28
 
-                val Actionha= ActionsItem(textTitle = txtname, textsub = txtinfo, datebild = datebi)
-                val data = tableAct.getall()
-                val adap = AdapterGoalsR(ArrayList(data))
+                val Actionha= GoalsItem(textTitle = txtname, textsub = txtinfo, datebild = datebi)
                 adap.addAction(Actionha)
-                tableAct.insert(Actionha)
+                tableGoals.insert(Actionha)
                 alert.dismiss()
                 binding.RcycleMonth.smoothScrollToPosition(0)
             }
 
         }
-    }
-    private fun showall(){
-        val data = tableAct.getall()
-        val adap = AdapterGoalsR(ArrayList(data))
-        binding.RcycleMonth.adapter = adap
-        binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
     }
 }

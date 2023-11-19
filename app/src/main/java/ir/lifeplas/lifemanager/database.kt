@@ -5,11 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import ir.lifeplas.lifemanager.dataclass.ActionsItem
+import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
-@Database(entities = [ActionsItem::class], version = 3, exportSchema = false)
+@Database(
+    entities = [ActionsItem::class, GoalsItem::class],
+    version = 4,
+    exportSchema = false)
 abstract class database :RoomDatabase(){
     abstract val  actionsDao: Actionsdao
-
+    abstract val  goalsDao: Goalsdao
     companion object{
         @Volatile
         private var databasee: database? = null
@@ -19,6 +23,7 @@ abstract class database :RoomDatabase(){
                 if(instance==null){
                     instance= Room.databaseBuilder(context.applicationContext,database::class.java,"DB")
                         .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
                 return instance

@@ -10,3 +10,12 @@ data class ActionsItem(
     val textTitle: String,
     val textsub: String,
     val datebild: Int)
+
+@Entity("tableGoals")
+data class GoalsItem(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int?=null,
+    val textTitle: String,
+    val textsub: String,
+    val datebild: Int)
+
