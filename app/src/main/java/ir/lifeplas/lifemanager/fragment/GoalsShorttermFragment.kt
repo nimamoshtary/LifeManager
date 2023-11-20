@@ -14,7 +14,7 @@ import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentGoalsYearBinding
 import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
-class GoalsYearFragment : Fragment() {
+class GoalsShorttermFragment : Fragment() {
     lateinit var binding : FragmentGoalsYearBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         //return super.onCreateView(inflater, container, savedInstanceState)

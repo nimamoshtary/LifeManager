@@ -8,14 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ir.lifeplas.lifemanager.Actionsdao
 import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogActionsBinding
 import ir.lifeplas.lifemanager.databinding.FragmentGoalsMonthBinding
 import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
-class GoalsMonthFragment : Fragment() {
+class GoalsMidtermFragment : Fragment() {
     lateinit var binding : FragmentGoalsMonthBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsMonthBinding.inflate(layoutInflater, null, false)

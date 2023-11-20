@@ -3,9 +3,8 @@ package ir.lifeplas.lifemanager.Adapters
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import ir.lifeplas.lifemanager.fragment.GoalsLongtimeFragment
-import ir.lifeplas.lifemanager.fragment.GoalsMonthFragment
-import ir.lifeplas.lifemanager.fragment.GoalsWeekFragment
-import ir.lifeplas.lifemanager.fragment.GoalsYearFragment
+import ir.lifeplas.lifemanager.fragment.GoalsMidtermFragment
+import ir.lifeplas.lifemanager.fragment.GoalsShorttermFragment
 
 class AdapterGoalsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
 
@@ -15,13 +14,10 @@ class AdapterGoalsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
                 return GoalsLongtimeFragment()
             }
             1 -> {
-                return GoalsYearFragment()
+                return GoalsMidtermFragment()
             }
             2 -> {
-                return GoalsMonthFragment()
-            }
-            3 -> {
-                return GoalsWeekFragment()
+                return GoalsShorttermFragment()
             }
             else -> {
                 return Fragment()
@@ -30,7 +26,7 @@ class AdapterGoalsV(fragment:Fragment) : FragmentStateAdapter(fragment) {
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 3
     }
 
 }
