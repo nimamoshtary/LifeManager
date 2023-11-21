@@ -39,7 +39,7 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>) : RecyclerView.Adapte
     }
 
     fun addAction(action:GoalsItem){
-        data.add( 0 , action )
+        data.add( 0, action )
         notifyItemInserted(0)
     }
 

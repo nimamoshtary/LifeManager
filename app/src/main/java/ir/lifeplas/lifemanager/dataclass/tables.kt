@@ -17,5 +17,7 @@ data class GoalsItem(
     val id: Int?=null,
     val textTitle: String,
     val textsub: String,
-    val datebild: Int)
+    val datebild: Int,
+    val model: Int,
+    val importance: Int)
 

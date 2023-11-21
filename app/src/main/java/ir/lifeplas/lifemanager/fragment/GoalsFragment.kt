@@ -27,9 +27,9 @@ class GoalsFragment : Fragment(){
             object : TabLayoutMediator.TabConfigurationStrategy {
                 override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
                     when(position){
-                        0 -> {tab.text = " بلند مدت "}
-                        1 -> {tab.text = " میان مدت "}
-                        2 -> {tab.text = " کوتاه مدت "}
+                        0 -> {tab.text = "بلند مدت"}
+                        1 -> {tab.text = "میان مدت"}
+                        2 -> {tab.text = "کوتاه مدت"}
                     }
                 }
             })

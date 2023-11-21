@@ -9,7 +9,7 @@ import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
 @Database(
     entities = [ActionsItem::class, GoalsItem::class],
-    version = 4,
+    version = 6,
     exportSchema = false)
 abstract class database :RoomDatabase(){
     abstract val  actionsDao: Actionsdao
