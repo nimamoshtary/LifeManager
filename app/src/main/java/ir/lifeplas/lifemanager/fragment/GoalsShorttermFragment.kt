@@ -73,7 +73,6 @@ class GoalsShorttermFragment : Fragment() {
 
                 binding.RcycleYear.smoothScrollToPosition(0)
             }
-
         }
     }
 }
