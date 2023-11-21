@@ -18,6 +18,13 @@ data class GoalsItem(
     val textTitle: String,
     val textsub: String,
     val datebild: Int,
+    val datefill: Int?=null,
     val model: Int,
-    val importance: Int)
+    val importance: Int,
+    val urgency: Int,
+    val acions: Int,
+    val fillaction: Int,
+    val notfillaction: Int,
+    val completion: Int,
+    val timespent: Int?=null)
 

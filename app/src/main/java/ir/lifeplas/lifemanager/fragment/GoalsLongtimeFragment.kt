@@ -60,8 +60,12 @@ class GoalsLongtimeFragment : Fragment() {
                     textsub = txtinfo,
                     datebild = datebi.toInt(),
                     model = 3,
-                    importance = 2
-                )
+                    importance = imp,
+                    urgency = 1,
+                    acions = 0,
+                    fillaction = 0,
+                    notfillaction = 0,
+                    completion = 0 )
                 tableGoals.insert(Actionha)
                 val datai = tableGoals.getAllShortterm()
                 val adapt = AdapterGoalsR(ArrayList(datai))
@@ -71,7 +75,6 @@ class GoalsLongtimeFragment : Fragment() {
 
                 binding.RcyclerLong.smoothScrollToPosition(0)
             }
-
         }
     }
 }

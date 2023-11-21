@@ -62,8 +62,12 @@ class GoalsShorttermFragment : Fragment() {
                     textsub = txtinfo,
                     datebild = datebi.toInt(),
                     model = 1,
-                    importance = imp
-                )
+                    importance = imp,
+                    urgency = 1,
+                    acions = 0,
+                    fillaction = 0,
+                    notfillaction = 0,
+                    completion = 0)
                 tableGoals.insert(Actionha)
                 val datai = tableGoals.getAllShortterm()
                 val adapt = AdapterGoalsR(ArrayList(datai))
