@@ -41,6 +41,8 @@ class GoalsLongtimeFragment : Fragment() {
             val dialogs = DialogGoalsBinding.inflate(layoutInflater)
             alert.setView(dialogs.root)
             alert.setCancelable(true)
+            dialogs.radioGroup.check(R.id.radioButton3)
+            dialogs.radiogroupf.check(R.id.rbNormally)
             alert.show()
             dialogs.btnok.setOnClickListener {
                 val txtname = dialogs.nameofaction.text.toString()
@@ -53,6 +55,13 @@ class GoalsLongtimeFragment : Fragment() {
                     R.id.radioButton3 -> {imp = 2}
                     R.id.radioButton4 -> {imp = 1}
                 }
+                var urg = 1
+                val checkedu = dialogs.radiogroupf.checkedRadioButtonId
+                when(checkedu){
+                    R.id.rbUrgency -> urg = 3
+                    R.id.rbNUrgency -> urg = 2
+                    R.id.rbNormally -> urg = 1
+                }
                 val datebi = currentDateandTime
 
                 val Actionha= GoalsItem(
@@ -61,7 +70,7 @@ class GoalsLongtimeFragment : Fragment() {
                     datebild = datebi.toInt(),
                     model = 3,
                     importance = imp,
-                    urgency = 1,
+                    urgency = urg,
                     acions = 0,
                     fillaction = 0,
                     notfillaction = 0,

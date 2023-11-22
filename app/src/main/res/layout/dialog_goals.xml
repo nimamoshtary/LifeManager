@@ -54,7 +54,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="65dp"
+        android:background="#E1BEBE"
+        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoofaction">
 
@@ -81,13 +83,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:gravity="center|center_horizontal"
             android:text="غیر ضرری" />
     </RadioGroup>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
+    <RadioGroup
+        android:id="@+id/radiogroupf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="radioGroup" />
+        android:layout_marginEnd="65dp"
+        android:background="#F3F196"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/rbUrgency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="فوری &quot;&quot;" />
+
+        <RadioButton
+            android:id="@+id/rbNUrgency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نه چندان فوری &quot;" />
+
+        <RadioButton
+            android:id="@+id/rbNormally"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="عادی" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
