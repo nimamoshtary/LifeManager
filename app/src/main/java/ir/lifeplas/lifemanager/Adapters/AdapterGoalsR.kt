@@ -60,7 +60,7 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Recycler {
-        val layout = LayoutInflater.from(parent.context).inflate(R.layout.item_actions,parent,false)
+        val layout = LayoutInflater.from(parent.context).inflate(R.layout.item_goals,parent,false)
         return Recycler(layout)
     }
 
@@ -71,10 +71,4 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
     override fun getItemCount(): Int {
         return data.size
     }
-
-//    fun delAction(action:GoalsItem, poz:Int){
-//        data.remove(action)
-//        notifyItemRemoved(poz)
-//    }
-
 }
