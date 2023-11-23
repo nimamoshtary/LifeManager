@@ -33,7 +33,7 @@ class GoalsShorttermFragment : Fragment() {
 
         val tableGoals = database.getdb(view.context).goalsDao
         val data = tableGoals.getAllShortterm()
-        val adap = AdapterGoalsR(ArrayList(data))
+        val adap = AdapterGoalsR(ArrayList(data),view.context)
         binding.RcycleYear.adapter = adap
         binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
@@ -78,7 +78,7 @@ class GoalsShorttermFragment : Fragment() {
                     completion = 0)
                 tableGoals.insert(Actionha)
                 val datai = tableGoals.getAllShortterm()
-                val adapt = AdapterGoalsR(ArrayList(datai))
+                val adapt = AdapterGoalsR(ArrayList(datai),view.context)
                 binding.RcycleYear.adapter = adapt
                 binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
                 alert.dismiss()

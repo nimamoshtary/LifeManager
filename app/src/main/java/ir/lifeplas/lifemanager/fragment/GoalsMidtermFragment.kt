@@ -32,7 +32,7 @@ class GoalsMidtermFragment : Fragment() {
 
         val tableGoals = database.getdb(view.context).goalsDao
         val data = tableGoals.getAllMidterm()
-        val adap = AdapterGoalsR(ArrayList(data))
+        val adap = AdapterGoalsR(ArrayList(data),view.context)
         binding.RcycleMonth.adapter = adap
         binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
@@ -76,8 +76,8 @@ class GoalsMidtermFragment : Fragment() {
                     notfillaction = 0,
                     completion = 0)
                 tableGoals.insert(Actionha)
-                val datai = tableGoals.getAllShortterm()
-                val adapt = AdapterGoalsR(ArrayList(datai))
+                val datai = tableGoals.getAllMidterm()
+                val adapt = AdapterGoalsR(ArrayList(datai),view.context)
                 binding.RcycleMonth.adapter = adapt
                 binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
                 alert.dismiss()

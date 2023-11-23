@@ -32,7 +32,7 @@ class GoalsLongtimeFragment : Fragment() {
 
         var tableGoals = database.getdb(view.context).goalsDao
         val data = tableGoals.getAllLongtime()
-        val adap = AdapterGoalsR(ArrayList(data))
+        val adap = AdapterGoalsR(ArrayList(data),view.context)
         binding.RcyclerLong.adapter = adap
         binding.RcyclerLong.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
@@ -76,8 +76,8 @@ class GoalsLongtimeFragment : Fragment() {
                     notfillaction = 0,
                     completion = 0 )
                 tableGoals.insert(Actionha)
-                val datai = tableGoals.getAllShortterm()
-                val adapt = AdapterGoalsR(ArrayList(datai))
+                val datai = tableGoals.getAllLongtime()
+                val adapt = AdapterGoalsR(ArrayList(datai),view.context)
                 binding.RcyclerLong.adapter = adapt
                 binding.RcyclerLong.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
                 alert.dismiss()
