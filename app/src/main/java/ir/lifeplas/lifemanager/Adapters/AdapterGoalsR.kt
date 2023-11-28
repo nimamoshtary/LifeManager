@@ -1,6 +1,7 @@
 package ir.lifeplas.lifemanager.Adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,23 +22,46 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
         var imgfil = Item.findViewById<ImageView>(R.id.img_complet)
 
         fun bindData(position:Int){
-            txttitle.text = data[position].textTitle.toString()
-            txtsub.text = data[position].textsub.toString()
+            txttitle.text = data[position].textTitle
+            txtsub.text = data[position].textsub
             var impt = "ضروری"
+            val red = Color.RED
+            val orenge = Color.argb(255,255,152,0)
+            val yellow = Color.YELLOW
+            val white = Color.WHITE
+            var cimpt = red
             when(data[position].importance){
-                4 -> {impt="ضروری"}
-                3 -> {impt="نه چندان ضروری"}
-                2 -> {impt="عادی"}
-                1 -> {impt="غیر ضروری"}
+                4 -> {
+                    impt="ضروری"
+                    cimpt=red
+                }
+                3 -> {impt="نه چندان ضروری"
+                    cimpt=orenge
+                }
+                2 -> {impt="عادی"
+                    cimpt=yellow
+                }
+                1 -> {impt="غیر ضروری"
+                    cimpt=white
+                }
             }
             var urgt = "فوری"
+            var curg = red
             when(data[position].urgency){
-                3 -> {urgt="فوری"}
-                2 -> {urgt="نه چندان فوری"}
-                1 -> {urgt="عادی"}
+                3 -> {urgt="فوری"
+                    curg=orenge
+                }
+                2 -> {urgt="نه چندان فوری"
+                    curg=yellow
+                }
+                1 -> {urgt="عادی"
+                    curg=white
+                }
             }
-            txtimp.text = impt.toString()
-            txturg.text = urgt.toString()
+            txtimp.text = impt
+            txtimp.background.setTint(cimpt)
+            txturg.text = urgt
+            txturg.background.setTint(curg)
             imgmore.setOnClickListener{
                 val tableGoals = database.getdb(context).goalsDao
                 val Actionha= GoalsItem(
