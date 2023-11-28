@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" >
 
-    <size android:height="5dp" android:width="22dp" />
-    <gradient android:centerColor="@color/design_default_color_primary" android:endColor="#512DA8" android:startColor="#512DA8" android:angle="270" />
-    <corners android:radius="18dp"/>
+    <size android:height="50dp" android:width="220dp" />
+    <gradient android:centerColor="?attr/colorPrimary" android:endColor="?attr/colorPrimaryVariant" android:startColor="?attr/colorPrimaryVariant" android:angle="270" />
+    <corners android:radius="20dp"/>
 </shape>

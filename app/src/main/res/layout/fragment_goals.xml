@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
@@ -26,6 +26,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tabIconTint="?attr/colorSecondaryVariant"
+        app:tabIndicatorColor="?attr/colorSecondary"
+        app:tabInlineLabel="false"
+        app:tabRippleColor="?attr/colorSecondaryVariant"
+        app:tabSelectedTextColor="?attr/colorSecondary"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck">
 
     </com.google.android.material.tabs.TabLayout>
