@@ -45,8 +45,8 @@ class GoalsLongtimeFragment : Fragment() {
             dialogs.radiogroupf.check(R.id.rbNormally)
             alert.show()
             dialogs.btnok.setOnClickListener {
-                val txtname = dialogs.nameofaction.text.toString()
-                val txtinfo = dialogs.infoofaction.text.toString()
+                val txtname = dialogs.nameofaction.editText?.text.toString()
+                val txtinfo = dialogs.infoofaction.editText?.text.toString()
                 var imp = 2
                 val checked = dialogs.radioGroup.checkedRadioButtonId
                 when(checked){

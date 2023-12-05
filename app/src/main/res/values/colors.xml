@@ -9,5 +9,6 @@
     <color name="white">#FDFDFD</color>
     <color name="Red">#D50000</color>
     <color name="Orange">#FF9800</color>
-    <color name="on_primary">?attr/colorOnPrimary</color>
+    <color name="Yellow">#FFD600</color>
+    <color name="primary">#212121</color>
 </resources>

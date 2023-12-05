@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/background"
     android:orientation="vertical">
 
     <androidx.viewpager2.widget.ViewPager2
@@ -24,6 +25,7 @@
         android:id="@+id/tablayout"
         android:layout_width="225dp"
         android:layout_height="wrap_content"
+        android:background="?attr/colorOnBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabIconTint="?attr/colorSecondaryVariant"

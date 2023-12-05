@@ -5,6 +5,8 @@
         <item name="colorPrimary">#FFC107</item>
         <item name="colorPrimaryVariant">#FF9800</item>
         <item name="colorOnPrimary">@color/black</item>
+        <item name="background">@color/white</item>
+        <item name="colorOnBackground">#FFD79B</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#2D2D2D</item>
         <item name="colorSecondaryVariant">#464646</item>
