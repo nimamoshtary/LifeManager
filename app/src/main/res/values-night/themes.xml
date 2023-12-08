@@ -8,7 +8,7 @@
         <item name="background">@color/primary</item>
         <item name="colorOnBackground">?attr/colorPrimary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FFC107</item>
+        <item name="colorSecondary">#FFD600</item>
         <item name="colorSecondaryVariant">#FF9800</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
