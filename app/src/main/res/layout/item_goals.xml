@@ -11,44 +11,47 @@
     <ImageView
         android:id="@+id/img_more"
         android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="5dp"
         android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnPrimary" />
 
-    <ImageView
-        android:id="@+id/img_complet"
-        android:layout_width="44dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:src="@drawable/ic_circle"
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="-10dp"
+        android:buttonTint="?attr/colorOnPrimary"
         app:layout_constraintEnd_toStartOf="@+id/img_more"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="285dp"
         android:layout_height="31dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="9dp"
         android:text="title"
         android:textColor="?attr/colorOnPrimary"
-        android:textSize="20sp"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_sub"
-        android:layout_width="250dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="8dp"
         android:alpha="0.8"
         android:text="subtitle"
         android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/txt_all"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
@@ -57,8 +60,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/sh_circle_high"
         android:paddingStart="5dp"
         android:paddingTop="2dp"
@@ -66,7 +69,7 @@
         android:paddingBottom="2dp"
         android:text="importance"
         android:textColor="#000000"
-        android:textSize="12sp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_sub" />
@@ -75,9 +78,9 @@
         android:id="@+id/txt_urg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
         android:background="@drawable/sh_circle_high"
-        android:backgroundTint="#FFBF00"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="8dp"
         android:paddingStart="5dp"
         android:paddingTop="2dp"
         android:paddingEnd="5dp"
@@ -85,7 +88,81 @@
         android:text="urgency"
         android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_imp"
-        app:layout_constraintEnd_toStartOf="@+id/txt_imp"
-        app:layout_constraintTop_toTopOf="@+id/txt_imp" />
+        app:layout_constraintBottom_toTopOf="@+id/txt_imp"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/txt_urg"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_urg"/>
+
+    <TextView
+        android:id="@+id/txt_cot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="/"
+        app:layout_constraintEnd_toStartOf="@+id/txt_com"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_com"/>
+
+    <TextView
+        android:id="@+id/txt_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/txt_cot"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_cot"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="-9dp"
+        app:layout_constraintStart_toStartOf="@+id/txt_sub"
+        app:layout_constraintEnd_toEndOf="@+id/txt_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sub" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2.5dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="0%"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"/>
+
+    <ImageView
+        android:id="@+id/img_clock"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="2dp"
+        android:src="@drawable/ic_baseline_schedule_24"
+        app:layout_constraintStart_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+        app:tint="?attr/colorOnPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintTop_toTopOf="@+id/img_clock"
+        app:layout_constraintStart_toEndOf="@+id/img_clock"
+        app:layout_constraintBottom_toBottomOf="@+id/img_clock"
+        android:text="0"
+        android:textSize="9sp"
+        android:textColor="?attr/colorOnPrimary"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

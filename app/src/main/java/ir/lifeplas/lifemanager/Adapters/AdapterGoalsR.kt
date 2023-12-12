@@ -25,6 +25,7 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
             txttitle.text = data[position].textTitle
             txtsub.text = data[position].textsub
             var impt = "ضروری"
+            var imps = 12f
             val red = Color.RED
             val orenge = Color.argb(255,255,152,0)
             val yellow = Color.YELLOW
@@ -37,6 +38,7 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
                 }
                 3 -> {impt="نه چندان ضروری"
                     cimpt=orenge
+                    imps= 10f
                 }
                 2 -> {impt="عادی"
                     cimpt=yellow
@@ -60,6 +62,7 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
             }
             txtimp.text = impt
             txtimp.background.setTint(cimpt)
+            txtimp.textSize = imps
             txturg.text = urgt
             txturg.background.setTint(curg)
             imgmore.setOnClickListener{
