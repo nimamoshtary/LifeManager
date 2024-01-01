@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
+import ir.lifeplas.lifemanager.MainActivity
 import ir.lifeplas.lifemanager.R
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogGoalsBinding
@@ -18,8 +19,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 
-class GoalsShorttermFragment : Fragment() {
+class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
     lateinit var binding : FragmentGoalsShorttermBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsShorttermBinding.inflate(layoutInflater, null, false)
         return binding.root
@@ -33,9 +35,10 @@ class GoalsShorttermFragment : Fragment() {
 
         val tableGoals = database.getdb(view.context).goalsDao
         val data = tableGoals.getAllShortterm()
-        val adap = AdapterGoalsR(ArrayList(data),view.context)
+        val adap = AdapterGoalsR(ArrayList(data),view.context,this)
         binding.RcycleYear.adapter = adap
         binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+
 
         binding.floatingActionButton.setOnClickListener {
             val alert = AlertDialog.Builder(context).create()
@@ -78,7 +81,7 @@ class GoalsShorttermFragment : Fragment() {
                     completion = 0)
                 tableGoals.insert(Actionha)
                 val datai = tableGoals.getAllShortterm()
-                val adapt = AdapterGoalsR(ArrayList(datai),view.context)
+                val adapt = AdapterGoalsR(ArrayList(datai),view.context,this)
                 binding.RcycleYear.adapter = adapt
                 binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
                 alert.dismiss()
@@ -86,5 +89,9 @@ class GoalsShorttermFragment : Fragment() {
                 binding.RcycleYear.smoothScrollToPosition(0)
             }
         }
+    }
+    override fun clicked() {
+        val mainActivity = activity as MainActivity
+        val funclick = mainActivity.clicked()
     }
 }

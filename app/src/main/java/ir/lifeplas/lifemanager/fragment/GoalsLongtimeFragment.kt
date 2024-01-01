@@ -1,5 +1,6 @@
 package ir.lifeplas.lifemanager.fragment
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
+import ir.lifeplas.lifemanager.MainActivity
 import ir.lifeplas.lifemanager.R
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.databinding.DialogGoalsBinding
@@ -17,13 +19,14 @@ import ir.lifeplas.lifemanager.dataclass.GoalsItem
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class GoalsLongtimeFragment : Fragment() {
+class GoalsLongtimeFragment : Fragment() , AdapterGoalsR.Transferdata{
     lateinit var binding : FragmentGoalsLongtimeBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsLongtimeBinding.inflate(layoutInflater, null, false)
         return binding.root
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,7 +35,7 @@ class GoalsLongtimeFragment : Fragment() {
 
         var tableGoals = database.getdb(view.context).goalsDao
         val data = tableGoals.getAllLongtime()
-        val adap = AdapterGoalsR(ArrayList(data),view.context)
+        val adap = AdapterGoalsR(ArrayList(data),view.context,this)
         binding.RcyclerLong.adapter = adap
         binding.RcyclerLong.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
@@ -77,7 +80,7 @@ class GoalsLongtimeFragment : Fragment() {
                     completion = 0 )
                 tableGoals.insert(Actionha)
                 val datai = tableGoals.getAllLongtime()
-                val adapt = AdapterGoalsR(ArrayList(datai),view.context)
+                val adapt = AdapterGoalsR(ArrayList(datai),view.context,this)
                 binding.RcyclerLong.adapter = adapt
                 binding.RcyclerLong.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
                 alert.dismiss()
@@ -85,5 +88,10 @@ class GoalsLongtimeFragment : Fragment() {
                 binding.RcyclerLong.smoothScrollToPosition(0)
             }
         }
+    }
+
+    override fun clicked() {
+        val mainActivity = activity as MainActivity
+        val funclick = mainActivity.clicked()
     }
 }

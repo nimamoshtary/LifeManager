@@ -7,20 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import ir.lifeplas.lifemanager.R
 import ir.lifeplas.lifemanager.database
 import ir.lifeplas.lifemanager.dataclass.GoalsItem
 
-class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) : RecyclerView.Adapter<AdapterGoalsR.Recycler>() {
-    inner class Recycler(Item :View) :RecyclerView.ViewHolder(Item){
+class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context ,val trada:Transferdata) : RecyclerView.Adapter<AdapterGoalsR.Recycler>() {
+    inner class Recycler(Item :View, private val context: Context) :
+        RecyclerView.ViewHolder(Item){
         var txttitle = Item.findViewById<TextView>(R.id.txt_title)
         var txtsub = Item.findViewById<TextView>(R.id.txt_sub)
         var txtimp = Item.findViewById<TextView>(R.id.txt_imp)
         var txturg = Item.findViewById<TextView>(R.id.txt_urg)
         var imgmore = Item.findViewById<ImageView>(R.id.img_more)
         var imgfil = Item.findViewById<ImageView>(R.id.img_complet)
-
         fun bindData(position:Int){
             txttitle.text = data[position].textTitle
             txtsub.text = data[position].textsub
@@ -83,12 +84,18 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
                 data.remove(Actionha)
                 notifyDataSetChanged()
             }
+            itemView.setOnClickListener {
+                trada.clicked()
+            }
+            itemView.setOnLongClickListener {
+                Toast.makeText(context, "actions view", Toast.LENGTH_LONG).show()
+                true
+            }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Recycler {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.item_goals,parent,false)
-        return Recycler(layout)
+        return Recycler(layout,parent.context)
     }
 
     override fun onBindViewHolder(holder: Recycler, position: Int) {
@@ -97,5 +104,9 @@ class AdapterGoalsR(private val data:ArrayList<GoalsItem>,val context:Context) :
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    interface Transferdata{
+        fun clicked()
     }
 }
