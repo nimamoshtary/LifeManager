@@ -1,12 +1,16 @@
 package ir.lifeplas.lifemanager
 
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ir.lifeplas.lifemanager.Adapters.AdapterGoalsR
 import ir.lifeplas.lifemanager.databinding.ActivityMainBinding
+import ir.lifeplas.lifemanager.dataclass.GoalsItem
 import ir.lifeplas.lifemanager.fragment.ActionsFragment
+import ir.lifeplas.lifemanager.fragment.EditGoalsFragment
 import ir.lifeplas.lifemanager.fragment.GoalsFragment
 import ir.lifeplas.lifemanager.fragment.ScheduleFragment
 import ir.lifeplas.lifemanager.fragment.SeeActionsFragment

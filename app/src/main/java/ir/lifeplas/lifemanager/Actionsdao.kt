@@ -33,22 +33,22 @@ interface Actionsdao : BaseDao<ActionsItem> {
 interface Goalsdao : BaseDao<GoalsItem> {
     @Query("SELECT * from tableGoals ")
     fun getAllGoals(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY importance + urgency DESC")
-    fun getAllShortterm(): List<GoalsItem>
     @Query("SELECT * FROM tableGoals WHERE model=2 ORDER BY importance + urgency DESC")
+    fun getAllShortterm(): List<GoalsItem>
+    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY importance + urgency DESC")
     fun getAllMidterm(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=3 ORDER BY importance + urgency DESC")
+    @Query("SELECT * FROM tableGoals WHERE model=0 ORDER BY importance + urgency DESC")
     fun getAllLongtime(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY urgency DESC")
-    fun getAllUShortterm(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY importance DESC")
-    fun getAllIShortterm(): List<GoalsItem>
     @Query("SELECT * FROM tableGoals WHERE model=2 ORDER BY urgency DESC")
-    fun getAllUMidterm(): List<GoalsItem>
+    fun getAllUShortterm(): List<GoalsItem>
     @Query("SELECT * FROM tableGoals WHERE model=2 ORDER BY importance DESC")
+    fun getAllIShortterm(): List<GoalsItem>
+    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY urgency DESC")
+    fun getAllUMidterm(): List<GoalsItem>
+    @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY importance DESC")
     fun getAllIMidterm(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=3 ORDER BY urgency DESC")
+    @Query("SELECT * FROM tableGoals WHERE model=0 ORDER BY urgency DESC")
     fun getAllULongtime(): List<GoalsItem>
-    @Query("SELECT * FROM tableGoals WHERE model=3 ORDER BY importance DESC")
+    @Query("SELECT * FROM tableGoals WHERE model=0 ORDER BY importance DESC")
     fun getAllILongtime(): List<GoalsItem>
 }

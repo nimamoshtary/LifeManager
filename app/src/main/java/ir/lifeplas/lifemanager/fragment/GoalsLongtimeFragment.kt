@@ -30,14 +30,12 @@ class GoalsLongtimeFragment : Fragment() , AdapterGoalsR.Transferdata{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        firstrun(view)
+
         val sdf = SimpleDateFormat("yyyyMMdd")
         val currentDateandTime: String = sdf.format(Date())
 
         var tableGoals = database.getdb(view.context).goalsDao
-        val data = tableGoals.getAllLongtime()
-        val adap = AdapterGoalsR(ArrayList(data),view.context,this)
-        binding.RcyclerLong.adapter = adap
-        binding.RcyclerLong.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
         binding.floatingActionButton.setOnClickListener {
             val alert = AlertDialog.Builder(context).create()
@@ -71,7 +69,7 @@ class GoalsLongtimeFragment : Fragment() , AdapterGoalsR.Transferdata{
                     textTitle = txtname,
                     textsub = txtinfo,
                     datebild = datebi.toInt(),
-                    model = 3,
+                    model = 0,
                     importance = imp,
                     urgency = urg,
                     acions = 0,
@@ -89,7 +87,13 @@ class GoalsLongtimeFragment : Fragment() , AdapterGoalsR.Transferdata{
             }
         }
     }
-
+    fun firstrun(view: View){
+        var tableGoals = database.getdb(view.context).goalsDao
+        val data = tableGoals.getAllLongtime()
+        val adap = AdapterGoalsR(ArrayList(data),view.context,this@GoalsLongtimeFragment)
+        binding.RcyclerLong.adapter = adap
+        binding.RcyclerLong.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL,false)
+    }
     override fun clicked() {
         val mainActivity = activity as MainActivity
         val funclick = mainActivity.clicked()

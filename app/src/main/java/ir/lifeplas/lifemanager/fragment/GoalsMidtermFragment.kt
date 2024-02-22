@@ -29,15 +29,12 @@ class GoalsMidtermFragment : Fragment() , AdapterGoalsR.Transferdata{
     @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        firstrun(view)
 
         val sdf = SimpleDateFormat("yyyyMMdd")
         val currentDateandTime: String = sdf.format(Date())
 
         val tableGoals = database.getdb(view.context).goalsDao
-        val data = tableGoals.getAllMidterm()
-        val adap = AdapterGoalsR(ArrayList(data),view.context,this)
-        binding.RcycleMonth.adapter = adap
-        binding.RcycleMonth.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
 
         binding.floatingActionButton.setOnClickListener {
             val alert = AlertDialog.Builder(context).create()
@@ -71,7 +68,7 @@ class GoalsMidtermFragment : Fragment() , AdapterGoalsR.Transferdata{
                     textTitle = txtname,
                     textsub = txtinfo,
                     datebild = datebi.toInt(),
-                    model = 2,
+                    model = 1,
                     importance = imp,
                     urgency = urg,
                     acions = 0,
@@ -89,6 +86,13 @@ class GoalsMidtermFragment : Fragment() , AdapterGoalsR.Transferdata{
             }
 
         }
+    }
+    fun firstrun(view: View){
+        var tableGoals = database.getdb(view.context).goalsDao
+        val data = tableGoals.getAllMidterm()
+        val adap = AdapterGoalsR(ArrayList(data),view.context,this@GoalsMidtermFragment)
+        binding.RcycleMonth.adapter = adap
+        binding.RcycleMonth.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL,false)
     }
     override fun clicked() {
         val mainActivity = activity as MainActivity

@@ -21,7 +21,6 @@ import java.util.Date
 
 class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
     lateinit var binding : FragmentGoalsShorttermBinding
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsShorttermBinding.inflate(layoutInflater, null, false)
         return binding.root
@@ -29,6 +28,8 @@ class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        firstrun(view)
 
         val sdf = SimpleDateFormat("yyyyMMdd")
         val currentDateandTime: String = sdf.format(Date())
@@ -38,7 +39,6 @@ class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
         val adap = AdapterGoalsR(ArrayList(data),view.context,this)
         binding.RcycleYear.adapter = adap
         binding.RcycleYear.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
-
 
         binding.floatingActionButton.setOnClickListener {
             val alert = AlertDialog.Builder(context).create()
@@ -72,7 +72,7 @@ class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
                     textTitle = txtname,
                     textsub = txtinfo,
                     datebild = datebi.toInt(),
-                    model = 1,
+                    model = 2,
                     importance = imp,
                     urgency = urg,
                     acions = 0,
@@ -89,6 +89,13 @@ class GoalsShorttermFragment() : Fragment() , AdapterGoalsR.Transferdata{
                 binding.RcycleYear.smoothScrollToPosition(0)
             }
         }
+    }
+    fun firstrun(view: View){
+        var tableGoals = database.getdb(view.context).goalsDao
+        val data = tableGoals.getAllMidterm()
+        val adap = AdapterGoalsR(ArrayList(data),view.context,this@GoalsShorttermFragment)
+        binding.RcycleYear.adapter = adap
+        binding.RcycleYear.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL,false)
     }
     override fun clicked() {
         val mainActivity = activity as MainActivity
