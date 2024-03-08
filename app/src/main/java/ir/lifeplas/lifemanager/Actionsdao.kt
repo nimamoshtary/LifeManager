@@ -33,6 +33,8 @@ interface Actionsdao : BaseDao<ActionsItem> {
 interface Goalsdao : BaseDao<GoalsItem> {
     @Query("SELECT * from tableGoals ")
     fun getAllGoals(): List<GoalsItem>
+    @Query("SELECT * FROM tableGoals WHERE model=:model ORDER BY importance + urgency DESC")
+    fun getbymodel(model: Int):List<GoalsItem>
     @Query("SELECT * FROM tableGoals WHERE model=2 ORDER BY importance + urgency DESC")
     fun getAllShortterm(): List<GoalsItem>
     @Query("SELECT * FROM tableGoals WHERE model=1 ORDER BY importance + urgency DESC")

@@ -186,6 +186,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/white"
             android:alpha="0.88"
             android:text="عادی"
             android:buttonTint="@color/black"

@@ -15,7 +15,7 @@ data class ActionsItem(
 data class GoalsItem(
     @PrimaryKey(autoGenerate = true)
     val id: Int?=null,
-    val textTitle: String,
+    var textTitle: String,
     val textsub: String,
     val datebild: Int,
     val datefill: Int?=null,
