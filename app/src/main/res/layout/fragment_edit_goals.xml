@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_edittitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="نام جدید را وارد کنید"
+        android:ems="10"
+        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_editsubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:hint="توضیحات جایگذین را وارد کنید"
+        android:ems="10"
+        style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
+        app:layout_constraintTop_toBottomOf="@+id/edt_edittitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:background="@drawable/sh_circle_high"
+        android:backgroundTint="?attr/colorOnBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_editsubtitle">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_imp4"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:paddingEnd="5dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/Red"
+            android:text="ضروری"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_imp3"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/Orange"
+            android:text="نه چندان ضروری"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_imp2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/Yellow"
+            android:text="عادی"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_imp1"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:paddingEnd="5dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/white"
+            android:text="غیر ضروری"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radio_urg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:background="@drawable/sh_circle_high"
+        android:backgroundTint="?attr/colorOnBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_editsubtitle">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_urg3"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:paddingEnd="5dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/Orange"
+            android:text="فوری"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_urg2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/Yellow"
+            android:text="نه چندان فوری"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_urg1"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/sh_circle_high"
+            android:backgroundTint="@color/white"
+            android:text="عادی"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sabt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ثبت"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_imp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package ir.lifeplas.lifemanager.fragment
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +20,15 @@ import ir.lifeplas.lifemanager.dataclass.GoalsItem
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class GoalsFragment : Fragment(){
-    lateinit var binding: FragmentGoalsBinding
+class GoalsFragment : Fragment() , AdapterGoalsR.Transferdata {
+    lateinit var tableGoals : Goalsdao
+    lateinit var adapter : AdapterGoalsR
+    companion object{
+        @SuppressLint("StaticFieldLeak")
+        lateinit var co :View
+        @SuppressLint("StaticFieldLeak")
+        lateinit var binding: FragmentGoalsBinding
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGoalsBinding.inflate(inflater,container,false)
         return binding.root
@@ -119,7 +128,6 @@ class GoalsFragment : Fragment(){
         mainActivity.clicked()
     }
     override fun longcliked(goalsItem: GoalsItem, position: Int, viewmy: Int) {
-        Log.e("longClick","position in GoalsFragment: $position")
         val mainActivity = activity as MainActivity
         mainActivity.longcliked(goalsItem,position,viewmy)
     }

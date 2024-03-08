@@ -1,8 +1,8 @@
 package ir.lifeplas.lifemanager.Adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +21,7 @@ class AdapterGoalsR(private val data: ArrayList<GoalsItem>, val context: Context
         var txtimp = Item.findViewById<TextView>(R.id.txt_imp)
         var txturg = Item.findViewById<TextView>(R.id.txt_urg)
         var imgmore = Item.findViewById<ImageView>(R.id.img_more)
+        @SuppressLint("NotifyDataSetChanged")
         fun bindData(position: Int) {
             val cur = data[position]
             txttitle.text = cur.textTitle
@@ -79,7 +80,7 @@ class AdapterGoalsR(private val data: ArrayList<GoalsItem>, val context: Context
                 trada.clicked()
             }
             itemView.setOnLongClickListener {
-                Toast.makeText(context, "actions view", Toast.LENGTH_LONG).show()
+                trada.longcliked(cur, adapterPosition,cur.model)
                 true
             }
         }
@@ -94,8 +95,8 @@ class AdapterGoalsR(private val data: ArrayList<GoalsItem>, val context: Context
     override fun getItemCount(): Int {
         return data.size
     }
-
     interface Transferdata {
         fun clicked()
+        fun longcliked(goalsItem: GoalsItem, position: Int,viewmy:Int)
     }
 }

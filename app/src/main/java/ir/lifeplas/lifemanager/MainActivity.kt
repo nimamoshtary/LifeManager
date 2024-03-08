@@ -1,7 +1,6 @@
 package ir.lifeplas.lifemanager
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +18,8 @@ import ir.lifeplas.lifemanager.fragment.StatisticsFragment
 
 class MainActivity : AppCompatActivity() , AdapterGoalsR.Transferdata {
     lateinit var binding : ActivityMainBinding
+    val viewmodel : SharedViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,5 +60,22 @@ class MainActivity : AppCompatActivity() , AdapterGoalsR.Transferdata {
     override fun clicked() {
         supportFragmentManager.beginTransaction().replace(R.id.mainframe, SeeActionsFragment() ).commit()
         binding.drawerLayoutMain.open()
+    }
+
+    override fun longcliked(goalsItem: GoalsItem,position:Int,viewmy:Int) {
+        viewmodel.text.value = goalsItem.textTitle
+        viewmodel.textsub.value = goalsItem.textsub
+        viewmodel.imp.value = goalsItem.importance
+        viewmodel.view.value = goalsItem
+        viewmodel.position.value = position
+        viewmodel.fra.value = viewmy
+        supportFragmentManager.beginTransaction().replace(R.id.mainframe, EditGoalsFragment() ).commit()
+        binding.drawerLayoutMain.open()
+    }
+    fun closingdrawer( posi:Int, model:Int){
+        val fra = GoalsFragment()
+        val bind = GoalsFragment.co
+        fra.updategoal(posi,model,bind)
+        binding.drawerLayoutMain.close()
     }
 }
