@@ -40,35 +40,23 @@ class GoalsFragment : Fragment() , AdapterGoalsR.Transferdata {
         val sdf = SimpleDateFormat("yyyyMMdd")
         val currentDateandTime: String = sdf.format(Date())
 
-//        binding.radioModel0.setBackgroundColor()
-        if(modelstart == 0){
-            binding.radioGroup.check(R.id.radio_model0)
-        }
-//        binding.radioModel1.setBackgroundColor()
-        if(modelstart == 1){
-            binding.radioGroup.check(R.id.radio_model1)
-        }
-//        binding.radioModel2.setBackgroundColor()
-        if(modelstart == 2){
-            binding.radioGroup.check(R.id.radio_model2)
-        }
+        if(modelstart == 0){ binding.radioGroup.check(R.id.radio_model0) }
+        if(modelstart == 1){ binding.radioGroup.check(R.id.radio_model1) }
+        if(modelstart == 2){ binding.radioGroup.check(R.id.radio_model2) }
 
         binding.radioGroup.setOnCheckedChangeListener { _ , checkedId ->
             when (checkedId) {
                 R.id.radio_model0 -> {
                     runRecycler(0, view)
                     modelstart = 0
-                    //binding.radioModel0.setBackgroundColor()
                 }
                 R.id.radio_model1 -> {
                     runRecycler(1, view)
                     modelstart = 1
-                    //binding.radioModel1.setBackgroundColor()
                 }
                 R.id.radio_model2 -> {
                     runRecycler(2, view)
                     modelstart = 2
-                    //binding.radioModel2.setBackgroundColor()
                 }
             }
         }
@@ -114,7 +102,6 @@ class GoalsFragment : Fragment() , AdapterGoalsR.Transferdata {
                 tableGoals.insert(Actionha)
                 runRecycler(modelstart,view)
                 alert.dismiss()
-
                 binding.RcyclerGoals.smoothScrollToPosition(0)
             }
         }
@@ -132,20 +119,6 @@ class GoalsFragment : Fragment() , AdapterGoalsR.Transferdata {
         binding.RcyclerGoals.adapter = adapter
         binding.RcyclerGoals.layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL,false)
     }
-//    fun RadioButton.setBackgroundColor() {
-//        val colorStateList = ColorStateList(
-//            arrayOf(
-//                intArrayOf(-android.R.attr.state_checked), // unchecked
-//                intArrayOf(android.R.attr.state_checked) // checked
-//            ),
-//            intArrayOf(
-//                Color.BLACK, // unchecked color
-//                android.R.attr.colorSecondary
-//                //R.color.primary // checked color
-//            )
-//        )
-//        backgroundTintList = colorStateList
-//    }
     override fun clicked() {
         val mainActivity = activity as MainActivity
         mainActivity.clicked()
