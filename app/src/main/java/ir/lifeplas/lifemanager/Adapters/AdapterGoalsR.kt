@@ -80,7 +80,7 @@ class AdapterGoalsR(private val data: ArrayList<GoalsItem>, val context: Context
                 trada.clicked()
             }
             itemView.setOnLongClickListener {
-                trada.longcliked(cur, adapterPosition,cur.model)
+                trada.longcliked(cur,cur.model)
                 true
             }
         }
@@ -97,6 +97,6 @@ class AdapterGoalsR(private val data: ArrayList<GoalsItem>, val context: Context
     }
     interface Transferdata {
         fun clicked()
-        fun longcliked(goalsItem: GoalsItem, position: Int,viewmy:Int)
+        fun longcliked(goalsItem: GoalsItem, model:Int)
     }
 }

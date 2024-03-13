@@ -62,20 +62,17 @@ class MainActivity : AppCompatActivity() , AdapterGoalsR.Transferdata {
         binding.drawerLayoutMain.open()
     }
 
-    override fun longcliked(goalsItem: GoalsItem,position:Int,viewmy:Int) {
+    override fun longcliked(goalsItem: GoalsItem,model:Int) {
         viewmodel.text.value = goalsItem.textTitle
         viewmodel.textsub.value = goalsItem.textsub
-        viewmodel.imp.value = goalsItem.importance
         viewmodel.view.value = goalsItem
-        viewmodel.position.value = position
-        viewmodel.fra.value = viewmy
+        viewmodel.fra.value = model
         supportFragmentManager.beginTransaction().replace(R.id.mainframe, EditGoalsFragment() ).commit()
         binding.drawerLayoutMain.open()
     }
-    fun closingdrawer( posi:Int, model:Int){
-        val fra = GoalsFragment()
-        val bind = GoalsFragment.co
-        fra.updategoal(posi,model,bind)
+    fun closingdrawer(model:Int){
+        GoalsFragment.modelstart = model
+        replaceTra( GoalsFragment() )
         binding.drawerLayoutMain.close()
     }
 }

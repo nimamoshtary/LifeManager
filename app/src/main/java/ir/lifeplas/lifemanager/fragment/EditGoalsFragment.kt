@@ -95,9 +95,8 @@ class EditGoalsFragment() : Fragment(){
             val tableGoals = database.getdb(view.context).goalsDao
             tableGoals.update(GoalEx)
             //finish edit data for the database
-            val posit = viewModel.position.value!!.toInt()
             val mainActivity = activity as MainActivity
-            mainActivity.closingdrawer(posit,views.value!!.model)
+            mainActivity.closingdrawer(views.value!!.model)
             //close drawer and edit data for the adapter with reset Recyclerview
         }
     }
