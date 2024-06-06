@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RadioGroup
+        android:id="@+id/rdg_sortby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:checkedButton="@id/t_rd_sota"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/t_rd_sota"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="آخرین"
+            android:textColor="@drawable/se_filtering" />
+        <RadioButton
+            android:id="@+id/t_rd_fita"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="3dp"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="اولین"
+            android:textColor="@drawable/se_filtering" />
+        <RadioButton
+            android:id="@+id/t_rd_imup"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="3dp"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="ضروری تر"
+            android:textColor="@drawable/se_filtering" />
+        <RadioButton
+            android:id="@+id/t_rd_urup"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="3dp"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="فوری تر"
+            android:textColor="@drawable/se_filtering" />
+    </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Add Task"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="start"
+        app:iconPadding="10dp"
+        app:iconSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/TRec"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdg_sortby" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

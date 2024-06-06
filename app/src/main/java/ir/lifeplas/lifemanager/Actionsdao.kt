@@ -7,6 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import ir.lifeplas.lifemanager.dataclass.ActionsItem
 import ir.lifeplas.lifemanager.dataclass.GoalsItem
+import ir.lifeplas.lifemanager.dataclass.TasksItem
 
 interface BaseDao<T> {
 
@@ -29,6 +30,17 @@ interface Actionsdao : BaseDao<ActionsItem> {
 
 }
 
+@Dao
+interface Tasksdao : BaseDao<TasksItem> {
+    @Query("SELECT * from tableTasks ")
+    fun getAllTasks(): List<TasksItem>
+    @Query("SELECT TextTitle FROM tableGoals")
+    fun getTitleGoal(): List<String>
+    @Query("SELECT * FROM tableGoals WHERE TextTitle=:textTitle")
+    fun getGoalByTitle(textTitle:String):List<GoalsItem>
+    @Query("SELECT * from tableTasks ORDER BY DateBild DESC")
+    fun getbydatebild(): List<TasksItem>
+}
 @Dao
 interface Goalsdao : BaseDao<GoalsItem> {
     @Query("SELECT * from tableGoals ")

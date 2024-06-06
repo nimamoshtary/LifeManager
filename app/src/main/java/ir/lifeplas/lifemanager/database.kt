@@ -6,14 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import ir.lifeplas.lifemanager.dataclass.ActionsItem
 import ir.lifeplas.lifemanager.dataclass.GoalsItem
+import ir.lifeplas.lifemanager.dataclass.TasksItem
 
 @Database(
-    entities = [ActionsItem::class, GoalsItem::class],
-    version = 8,
+    entities = [ActionsItem::class, GoalsItem::class, TasksItem::class],
+    version = 10,
     exportSchema = false)
 abstract class database :RoomDatabase(){
     abstract val  actionsDao: Actionsdao
     abstract val  goalsDao: Goalsdao
+    abstract val  tasksDao: Tasksdao
     companion object{
         @Volatile
         private var databasee: database? = null
